@@ -1,0 +1,14 @@
+<mat-button-toggle-group
+  [disabled]="isDisabled"
+  [(ngModel)]="mode"
+  (change)="onChangeViewMode($event)">
+
+  <mat-button-toggle [value]="gridView">
+    <mat-icon>view_module</mat-icon>
+  </mat-button-toggle>
+
+  <mat-button-toggle [value]="tableView">
+    <mat-icon>view_list</mat-icon>
+  </mat-button-toggle>
+
+</mat-button-toggle-group>

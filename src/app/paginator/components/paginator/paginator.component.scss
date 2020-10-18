@@ -1,0 +1,49 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  > * {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 0 none;
+  border-radius: 50%;
+  padding: 0;
+  @include size(24px);
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+}
+
+.first,
+.last,
+.previous,
+.next {
+  &:not([disabled]) {
+    color: $color-primary;
+  }
+}
+
+.page {
+  font-weight: 700;
+
+  &.active {
+    color: $color-text-on-dark;
+    background-color: $color-primary;
+  }
+}
+
+.ellipsis {
+  .mat-icon {
+    vertical-align: middle;
+  }
+}
+

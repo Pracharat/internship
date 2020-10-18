@@ -1,0 +1,30 @@
+@import 'mixins';
+@import 'variables';
+
+$progress-height: 20px;
+
+:host {
+  display: inline-block;
+  height: $progress-height;
+  width: 100px;
+  position: relative;
+}
+
+.progress-bar {
+  border-radius: 5px;
+  height: $progress-height;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.progress-number {
+  display: block;
+  color: $color-text-on-dark;
+  font-size: $font-size-sm;
+  text-align: center;
+  line-height: $progress-height;
+  position: relative;
+}

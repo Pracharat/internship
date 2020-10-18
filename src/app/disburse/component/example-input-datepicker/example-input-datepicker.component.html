@@ -1,0 +1,72 @@
+<div class="container">
+  <h2 class="page-title">Input Datepicker</h2>
+
+  <p class="notice">
+    <fa-icon class="icon" [icon]="['fas', 'exclamation-triangle']"></fa-icon>
+    This directive is initially working with Angular Material Datepicker
+  </p>
+
+  <form [formGroup]="form">
+
+    <mat-form-field>
+      <mat-label>Datepicker</mat-label>
+
+      <input type="text"
+        matInput formControlName="date"
+        [appInputDate]="picker"
+        [matDatepicker]="picker"
+        [allowKey]="allowKeyboardTyping.value">
+
+      <button type="button"
+        mat-icon-button
+        matSuffix
+        (click)="date.reset()">
+        <mat-icon>clear</mat-icon>
+      </button>
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-hint>
+        Keyboard typing <strong *ngIf="!allowKeyboardTyping.value">NOT</strong> allowed
+      </mat-hint>
+
+      <mat-error *ngIf="date.errors as err">
+        {{ err.matDatepickerParse?.text }} is not valid date format <strong>DD/MM/YYYY</strong>.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="options">
+      <mat-checkbox formControlName="allowKeyboardTyping">Allow keyboard typing</mat-checkbox>
+    </div>
+
+  </form>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+
+  <mat-form-field>
+    <mat-label>Datepicker (no form control)</mat-label>
+
+    <input type="text"
+      matInput
+      [appInputDate]="picker3"
+      [matDatepicker]="picker3">
+
+    <button type="button"
+      mat-icon-button
+      matSuffix
+      (click)="picker3.select(null)">
+      <mat-icon>clear</mat-icon>
+    </button>
+
+    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+
+    <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="page-title">Input Trim</h2>
+
+  <mat-form-field>
+    <mat-label>Input Trim</mat-label>
+
+    <input type="text" matInput appInputTrim [(ngModel)]="input1">
+
+    <mat-hint align="end">
+      Length: <strong>{{ input1.length | number }}</strong>
+    </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Input Trim (no form control)</mat-label>
+
+    <input type="text" matInput appInputTrim #input2>
+
+    <mat-hint align="end">
+      Length: <strong>{{ input2.value.length | number }}</strong>
+    </mat-hint>
+  </mat-form-field>
+
+</div>

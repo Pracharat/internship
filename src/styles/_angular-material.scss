@@ -1,0 +1,14 @@
+
+@import '~@angular/material/theming';
+
+@import 'angular-material/typography';
+@include mat-core($app-typography);
+
+@import 'angular-material/colors';
+@import 'angular-material/theme';
+@include angular-material-theme($app-theme);
+
+// Custom CSS for Angular Material
+@import 'angular-material/form-field';
+@import 'angular-material/side-nav';
+

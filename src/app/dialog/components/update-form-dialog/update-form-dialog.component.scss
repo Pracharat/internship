@@ -1,0 +1,52 @@
+@import '_scrollbar';
+@import 'variables';
+@import 'mixins';
+.seconde-title {
+    font-weight: 300;
+}
+.inputFile{
+    opacity: 0;
+    z-index: 0;
+    position: absolute;
+ }
+ .showCorrect{
+    color: green;
+    font-size: small;
+    font-weight: 600;
+  
+    span{
+      padding: 0;
+      margin: 0;
+      margin-left: 10px ;
+    }
+  }
+  .remarkLength{
+    width: auto;
+    margin-left: 90%;
+  }
+
+
+  @media screen and (max-width: 768px){
+    .row1 , .row2 ,  .row3 {
+      display: block;
+      width: 100%;
+      
+      .mat-form-field{
+          width: 100%;
+          padding: 5px;
+      }
+    
+    
+  }
+      .remarkLength{
+          width: auto;
+          margin-left: 93%;
+      }
+  }
+  
+  @media screen and (max-width: 587px) {
+    .remarkLength{
+      width: auto;
+      margin-left: 84%;
+  }
+  }

@@ -1,0 +1,44 @@
+<div class="container">
+
+  <h2 class="page-title">Reimbursement toeic</h2>
+
+  <form [formGroup]="form" #toeicForm="ngForm">
+
+    <mat-form-field>
+      <mat-label>Eligible person</mat-label>
+      <input type="search" placeholder="pin" matInput formControlName="pin">
+    </mat-form-field>
+    <mat-autocomplete>
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-form-field>
+        <mat-label>Eligible person</mat-label>
+        <input type="search" placeholder="Name" matInput formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field>
+          <mat-label>Eligible person</mat-label>
+          <input type="search" placeholder="lastname" matInput formControlName="lastname">
+    </mat-form-field>
+      
+
+    <h3 class="seconde-title">Withdrawal Document</h3>
+    
+    <div class="button-container">
+      <button type="button" mat-stroked-button>
+        Cancel
+      </button>
+
+      <button type="button" mat-stroked-button (click)="reset()">
+        Reset
+      </button>
+
+      <!-- <button type="button" mat-flat-button color="primary" (click)="save(toeicForm)">
+        Save
+      </button> -->
+    </div>
+
+  </form>
+
+</div>

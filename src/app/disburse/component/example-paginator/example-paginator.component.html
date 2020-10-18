@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="paginator-nav">
+
+    <app-page-result
+      [total]="total"
+      [page]="pageParams.page"
+      [limit]="pageParams.limit">
+    </app-page-result>
+
+    <span class="flex-spacer"></span>
+
+    <app-item-per-page class="limit"
+      [limit]="pageParams.limit"
+      (limitChange)="onChangeLimit($event)">
+    </app-item-per-page>
+
+    <app-paginator
+      [total]="total"
+      [page]="pageParams.page"
+      [limit]="pageParams.limit"
+      (pageChange)="onChangePage($event)">
+    </app-paginator>
+
+  </div>
+
+</div>

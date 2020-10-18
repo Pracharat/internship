@@ -1,0 +1,10 @@
+@import 'mixins';
+@import 'variables';
+
+.view-text {
+  margin-right: $spacer;
+}
+
+.view-switcher {
+  margin-bottom: $spacer;
+}

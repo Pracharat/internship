@@ -1,0 +1,74 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.icon {
+  margin-top: -4px;
+  margin-left: -5px;
+}
+
+.menu-button {
+  background-color: $color-light;
+  border-radius: 0;
+  color: $color-text-on-light;
+  width: 100%;
+  text-align: left;
+
+  transition: background-color 0.2s linear;
+  transition: {
+    property: background-color, padding-left;
+    duration: 0.15s;
+    timing-function: linear;
+  }
+
+  &.active {
+    color: $color-primary;
+  }
+
+  &.expandable-button {
+    position: relative;
+    text-transform: uppercase;
+
+    &.expand {
+      color: $color-primary;
+
+      .expand-icon {
+        transform: translateY(-50%) rotateX(180deg);
+      }
+    }
+
+    .expand-icon {
+      position: absolute;
+      top: 50%;
+      right: $spacer;
+      transform: translateY(-50%) rotateX(0deg);
+      transition: transform 0.25s linear;
+    }
+  }
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+
+  max-height: 0;
+  overflow: hidden;
+
+  transition: {
+    property: max-height;
+    duration: 0.25s;
+    timing-function: ease-in-out;
+  }
+
+  &.expand {
+    max-height: 99em;
+    position: relative;
+  }
+
+  .sub-menu-tree {
+    margin-left: $spacer;
+  }
+}

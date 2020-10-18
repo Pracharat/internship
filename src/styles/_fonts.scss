@@ -1,0 +1,55 @@
+$font-path: '/assets/fonts/';
+
+@import url('https://fonts.googleapis.com/css?family=Prompt:300,400,500,700&display=swap&subset=thai');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap');
+
+// Custom fonts here
+
+@font-face {
+  font-family: 'Custom Font';
+  src: url($font-path + 'FontFileLight.eot');
+  src: url($font-path + 'FontFileLight.eot?#iefix') format('embedded-opentype'),
+       url($font-path + 'FontFileLight.woff2') format('woff2'),
+       url($font-path + 'FontFileLight.woff') format('woff'),
+       url($font-path + 'FontFileLight.ttf') format('truetype'),
+       url($font-path + 'FontFileLight.svg#FontFileLight') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'Custom Font';
+//   src: url($font-path + 'FontFile.eot');
+//   src: url($font-path + 'FontFile.eot?#iefix') format('embedded-opentype'),
+//        url($font-path + 'FontFile.woff2') format('woff2'),
+//        url($font-path + 'FontFile.woff') format('woff'),
+//        url($font-path + 'FontFile.ttf') format('truetype'),
+//        url($font-path + 'FontFile.svg#FontFile') format('svg');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Custom Font';
+//   src: url($font-path + 'FontFileMedium.eot');
+//   src: url($font-path + 'FontFileMedium.eot?#iefix') format('embedded-opentype'),
+//        url($font-path + 'FontFileMedium.woff2') format('woff2'),
+//        url($font-path + 'FontFileMedium.woff') format('woff'),
+//        url($font-path + 'FontFileMedium.ttf') format('truetype'),
+//        url($font-path + 'FontFileMedium.svg#FontFileMedium') format('svg');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'Custom Font';
+//   src: url($font-path + 'FontFileBold.eot');
+//   src: url($font-path + 'FontFileBold.eot?#iefix') format('embedded-opentype'),
+//        url($font-path + 'FontFileBold.woff2') format('woff2'),
+//        url($font-path + 'FontFileBold.woff') format('woff'),
+//        url($font-path + 'FontFileBold.ttf') format('truetype'),
+//        url($font-path + 'FontFileBold.svg#FontFileBold') format('svg');
+//   font-weight: 700;
+//   font-style: normal;
+// }

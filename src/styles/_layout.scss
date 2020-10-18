@@ -1,0 +1,57 @@
+.container {
+  margin: 0 0 $spacer 0;
+  padding: $spacer;
+  overflow: hidden auto;
+
+  .divider {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.button-container {
+  margin: 0 0 $spacer 0;
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  button {
+    margin-top: $spacer;
+    width: 100%;
+  }
+
+  @include screen('md') {
+    margin-left: $spacer * -1;
+    text-align: right;
+
+    button {
+      margin-left: $spacer;
+      width: auto;
+    }
+  }
+}
+
+.notice {
+  border: 1px solid $color-light-grey;
+  border-radius: $border-radius;
+  padding: $spacer;
+
+  .icon {
+    margin-right: $spacer-xs;
+  }
+}
+
+.code-box {
+  box-shadow: 0 0 3px 1px rgba(black, 0.15);
+  margin: $spacer 0;
+  padding: $spacer;
+}

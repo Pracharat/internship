@@ -1,0 +1,22 @@
+<fa-icon class="icon" [icon]="'file'"></fa-icon>
+
+<h4 class="file-name">
+  {{ name }}
+</h4>
+
+<button type="button"
+  *ngIf="!showProgress && !isSuccess && !isFail"
+  mat-icon-button color="warn"
+  (click)="deleteFile()">
+  <fa-icon [icon]="'trash'"></fa-icon>
+</button>
+
+<app-upload-progress-bar class="progress"
+  *ngIf="showProgress"
+  [value]="progress">
+</app-upload-progress-bar>
+
+<app-upload-result class="result"
+  *ngIf="isFail || isSuccess"
+  [success]="isSuccess && !isFail">
+</app-upload-result>

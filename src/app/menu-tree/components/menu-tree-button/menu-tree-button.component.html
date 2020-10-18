@@ -1,0 +1,40 @@
+<ng-container *ngIf="hasLink">
+  <a class="menu-button menu-link"
+    mat-button
+    [routerLink]="routerLink" [routerLinkActive]="routerLinkActive"
+    (click)="onClickMenu()">
+
+    <app-menu-tree-button-icon class="icon"
+      *ngIf="hasIcon"
+      [menu]="menu">
+    </app-menu-tree-button-icon>
+
+    {{ text }}
+  </a>
+</ng-container>
+
+<ng-container *ngIf="!hasLink">
+  <button class="menu-button expandable-button"
+    mat-button
+    [class.expand]="isExpand"
+    (click)="toggle()">
+
+    <app-menu-tree-button-icon class="icon"
+      *ngIf="hasIcon"
+      [menu]="menu">
+    </app-menu-tree-button-icon>
+
+    {{ text }}
+
+    <mat-icon class="expand-icon">expand_more</mat-icon>
+  </button>
+</ng-container>
+
+<div class="sub-menu" *ngIf="hasSubMenu"
+  [class.expand]="isExpand">
+  <app-menu-tree-button class="sub-menu-tree"
+    *ngFor="let menu of subMenu"
+    [menu]="menu"
+    (selectMenu)="onClickMenu()">
+  </app-menu-tree-button>
+</div>

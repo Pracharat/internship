@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'variables';
+
+$progress-item-icon-size: 40px;
+
+:host {
+  display: flex;
+  align-items: center;
+  padding: $spacer 0;
+}
+
+.icon {
+  display: none;
+  background-color: $color-primary;
+  border-radius: 50%;
+  color: $color-text-on-dark;
+  text-align: center;
+  line-height: $progress-item-icon-size;
+  margin-right: $spacer;
+  height: $progress-item-icon-size;
+  width: $progress-item-icon-size;
+}
+
+.file-name {
+  flex: 1 1 auto;
+  font-weight: 400;
+  margin: 0;
+  @include text-ellipsis();
+}
+
+.progress {
+  flex: 0 0 20%;
+  margin: 0 0 0 $spacer;
+  max-width: 100px;
+}
+
+.result {
+  margin-left: $spacer;
+}
+
+@include screen('sm') {
+  .icon {
+    display: inline-block;
+  }
+}
+
+@include screen('md') {
+  .file-name {
+    flex: 1 0 auto;
+  }
+}

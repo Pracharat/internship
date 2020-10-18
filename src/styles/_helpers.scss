@@ -1,0 +1,17 @@
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.divider {
+  display: block;
+  border-bottom: 1px solid $color-light-grey;
+  margin: $spacer-xl;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@app-error/*": ["./src/app/core/error/*"],
+      "@app-core/*": ["./src/app/core/*"],
+      "@app-shared/*": ["./src/app/shared/*"],
+      "@app-services/*": ["./src/app/services/*"],
+      "@app-models/*": ["./src/app/models/*"],
+      "@app-material/*": ["./src/app/angular-material/*"],
+      "@app-language/*": ["./src/app/language/*"],
+      "@app-fa-icon/*": ["./src/app/fa-icon/*"],
+      "@app-paginator/*": ["./src/app/paginator/*"],
+      "@app-dialog/*": ["./src/app/dialog/*"],
+      "@app-auth/*": ["./src/app/auth/*"],
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

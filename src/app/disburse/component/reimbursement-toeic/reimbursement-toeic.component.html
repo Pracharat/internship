@@ -1,0 +1,233 @@
+<div class="container">
+
+	<form [formGroup]="form">
+
+		<h2 class="page-title">เบิกค่าtoeic</h2>
+
+		<mat-form-field>
+			<mat-label>ผู้รับสิทธิ</mat-label>
+			<input type="search" placeholder="ชื่อ-นามสกุล" matInput [matAutocomplete]="auto" formControlName="employee">
+			<mat-error>กรุณากรอกชื่อ-นามสกุล</mat-error>
+			<mat-hint>
+				<span class="showCorrect" *ngIf="employee === null">
+					<mat-icon>check_circle</mat-icon>
+					<span>ถูกต้อง!</span>
+				</span>
+			</mat-hint>
+		</mat-form-field>
+
+		<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayEmployeeOption">
+			<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+				{{ option.firstname }} {{ option.lastname }}
+			</mat-option>
+		</mat-autocomplete>
+
+		<h3 class="seconde-title">เอกสารการเบิกเงิน</h3>
+
+		<div class="row1">
+
+			<mat-form-field>
+				<mat-label>เลขที่ใบเสร็จรับเงิน</mat-label>
+				<input type="text" id="tel" appStrictcharacter appRecieptNumber placeholder="xxx-xxxxx-xxx" matInput
+					formControlName="receiptNo">
+				<mat-error>กรุณากรอกเลขที่ใบเสร็จรับเงิน</mat-error>
+				<mat-hint>
+					<span class="showCorrect" *ngIf="!receiptNo.errors">
+						<mat-icon>check_circle</mat-icon>
+						<span>ถูกต้อง</span>
+					</span>
+				</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field>
+
+				<mat-label>วันที่</mat-label>
+
+				<input 
+				type="text" 
+				matInput 
+				[min]="minDate" 
+				[max]="currentDate" 
+				formControlName="receiptDate"
+				placeholder="วัน/เดือน/ปี" 
+				[appInputDate]="picker" 
+				[matDatepicker]="picker" 
+				[allowKey]="false" >
+
+				<button type="button" mat-icon-button matSuffix (click)="date.reset()">
+					<mat-icon>clear</mat-icon>
+				</button>
+
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+				<mat-datepicker #picker></mat-datepicker>
+
+				<mat-error *ngIf="date.errors as err">
+					{{ err.matDatepickerParse?.text }} ไม่ตรงกับรูปแบบที่กำหนด<strong>วัน/เดือน/ปี</strong>.
+				</mat-error>
+
+				<mat-hint>
+					<span class="showCorrect" *ngIf="!date.errors">
+						<mat-icon>check_circle</mat-icon>
+						<span>ถูกต้อง</span>
+					</span>
+				</mat-hint>
+
+			</mat-form-field>
+
+		</div>
+
+		<div class="row2">
+
+			<div class="netTotal">
+				<mat-form-field>
+
+					<mat-label>ยอดเงินสุทธิ</mat-label>
+					<input 
+					type="text" 
+					matInput 
+					appInputNumber 
+					[digitsInfo]="'0.2-2'" 
+					(change)="amountWithDrawn()"
+					formControlName="receiptAmount"
+					[allowKey]="true"
+					matTooltip="don't over 100,000 bath">
+
+					<span matPrefix>฿&nbsp;</span>
+					<mat-error>กรุณากรอกจำนวนเงิน ไม่เกิน 100,000 บาท</mat-error>
+					<mat-hint>
+						<span class="showCorrect" *ngIf="!receiptAmount.errors && receiptAmount.value !== 0 ">
+							<mat-icon>check_circle</mat-icon>
+							<span>ถูกต้อง</span>
+						</span>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+			
+			<mat-form-field>
+				<mat-label>ยอดเงินที่สามารถเบิกได้</mat-label>
+				<input 
+				type="text" 
+				appInputNumber 
+				[digitsInfo]="'0.2-2'"  
+				matInput 
+				formControlName="amountWithdrawn"
+				[allowKey]="false" >
+				<span matPrefix>฿&nbsp;</span>
+			</mat-form-field>
+		</div>
+		
+		<mat-form-field >
+			<mat-label>เอกสารใบเสร็จรับเงิน</mat-label>
+			<input 
+			type="text" 
+			matInput 
+			placeholder="อัพโหลดไฟล์"
+			matTooltip="PDF,JPG,JPEG"
+			readonly [value]="receiptFile.value?.filename || '' "  
+			(click)="inputFile.click()"
+			>
+			<button type="button" matSuffix mat-icon-button appUploadButton >
+				<fa-icon class="icon" [icon]="'file-upload'" ></fa-icon>
+			</button>
+			<mat-error>กรุณาเพิ่มไฟล์เอกสาร</mat-error>
+			<mat-hint>
+				<span class="showCorrect" *ngIf="!receiptFile.errors">
+					<mat-icon>check_circle</mat-icon>
+					<span>ถูกต้อง</span>
+				</span>
+			</mat-hint>
+
+		</mat-form-field>
+		<div class="inputFile">
+			<input type="file" #inputFile accept="application/pdf , image/jpg , image/jpeg" (change)="onFileChanges($event)">
+		</div>
+		<div class="image-preview mb-3" *ngIf="previewUrl">
+			<img [src]="previewUrl" height="50" width="auto" style="cursor: pointer ;" (click)="imgDialog()"/>
+		</div>
+		<br>
+		<mat-form-field>
+			<mat-label>หมายเหตุ</mat-label>
+			<textarea matInput appRemark formControlName="remark"></textarea>
+			<mat-hint class="remarkLength">
+				<span>{{remark.value?.length || 0 }}/{{1500}}</span>
+			</mat-hint>
+			<mat-error>
+				ตัวอักษรไม่เกิน 1,500 ตัว
+			</mat-error>
+		</mat-form-field>
+
+		<div class="button-container">
+			<button type="button" mat-stroked-button (click)="reset()">Reset</button>
+			<button type="button" mat-flat-button color="primary" (click)="saveReimbursetoeic()">Add</button>
+		</div>
+
+	</form>
+
+	<!---------------------TABLE DATA------------------------->
+
+	<mat-form-field class="searchKey" appearance="standard">
+		<input placeholder="Search" matInput autocomplete="off" [(ngModel)]="searchKey" (keyup)="applyFilter(searchKey)">
+		<mat-icon matPrefix >search</mat-icon>
+		<button mat-button mat-icon-button matSuffix aria-label="clear" (click)="searchClear()" *ngIf="searchKey">
+			<mat-icon>close</mat-icon>
+		</button>
+	</mat-form-field>
+
+
+	<!---------------------TABLE DATA------------------------->
+
+	<mat-table [dataSource]="reimburseToeic"  matSort class="mat-elevation-z8">
+
+		<ng-container matColumnDef="no">
+			<mat-header-cell *matHeaderCellDef=""> No </mat-header-cell>
+			<mat-cell *matCellDef="let element ; let i = index"> {{ startIndex + i }}. </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="employee">
+			<mat-header-cell *matHeaderCellDef> ผู้รับสิทธิ </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.employee.firstname}} {{element.employee.lastname}}
+			</mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="fullAmount">
+			<mat-header-cell *matHeaderCellDef> ยอดเงินสุทธิ </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.receiptAmount}}.00 </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="receiptAmount">
+			<mat-header-cell *matHeaderCellDef> ยอดเงินเบิก </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.amountWithdrawn}}.00 </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="action">
+			<mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+			<mat-cell *matCellDef="let element">
+				<mat-icon (click)="editListemployee(element)" class="editIcon">edit</mat-icon>
+				<mat-icon (click)="deleteListemployee(element)" class="deleteIcon">delete</mat-icon>
+			</mat-cell>
+
+		</ng-container>
+		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+	</mat-table>
+
+	<div class="container">
+
+		<div class="paginator-nav">
+
+			<app-page-result [total]="total" [page]="pageParams.page" [limit]="pageParams.limit">
+			</app-page-result>
+
+			<span class="flex-spacer"></span>
+
+			<app-item-per-page class="limit" [limit]="pageParams.limit" (limitChange)="onChangeLimit($event)">
+			</app-item-per-page>
+
+			<app-paginator [total]="total" [page]="pageParams.page" [limit]="pageParams.limit"
+				(pageChange)="onChangePage($event)">
+			</app-paginator>
+
+		</div>
+
+	</div>

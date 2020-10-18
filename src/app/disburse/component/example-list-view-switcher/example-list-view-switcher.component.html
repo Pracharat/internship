@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h2 class="page-title">List View Switcher</h2>
+
+  <span class="view-text">
+    View as: <strong>{{ viewModeText }}</strong>
+  </span>
+
+  <app-list-view-switcher class="view-switcher" [(ngModel)]="view"></app-list-view-switcher>
+
+  <app-example-data-list [class]="listCssClass" [list]="dataList"></app-example-data-list>
+
+</div>

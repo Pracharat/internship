@@ -1,0 +1,13 @@
+@import 'mixins';
+@import 'variables';
+
+.of {
+  color: $color-dark-grey;
+}
+
+.start,
+.end,
+.total,
+.dash {
+  font-weight: 500;
+}

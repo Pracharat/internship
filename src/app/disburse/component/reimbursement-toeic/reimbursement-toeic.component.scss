@@ -1,0 +1,144 @@
+@import 'variables';
+@import 'mixins';
+.inputFile{
+   opacity: 0;
+   z-index: -20;
+   position: absolute;
+}
+.searchKey{
+  // width: 50% ; 
+  display: block;
+  position: relative ;
+  margin-bottom: -5px;
+  button{
+    padding-left: 6px;
+  }
+}
+.showCorrect{
+  color: green;
+  font-size: small;
+  font-weight: 600;
+
+  span{
+    padding: 0;
+    margin: 0;
+    margin-left: -30px ;
+  }
+}
+.seconde-title {
+    font-weight: 300;
+}
+.row1 , .row2 ,  .row3 {
+    display: flex;
+    width: 100%;
+    
+    .mat-form-field{
+        width: 100%;
+        padding: 5px;
+    }
+}
+mat-icon {
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.netTotal {
+    width: 100% ;
+}
+.editIcon:hover{
+    color: rgb(4, 156, 4);
+}
+.deleteIcon:hover{
+    color:red;
+}
+
+//paginator 
+
+.paginator-example {
+    margin-bottom: $spacer;
+  }
+  
+  .paginator-options {
+    > * {
+      display: inline-block;
+      width: 100%;
+    }
+  
+    &.input-options {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: $spacer * -1;
+  
+      .mat-form-field {
+        flex: 0 0 calc(50% - #{$spacer});
+        margin-left: $spacer;
+        min-width: 0;
+      }
+    }
+  }
+  
+  .paginator-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    > * {
+      margin-bottom: $spacer;
+    }
+  }
+  
+  @include screen('md') {
+    .paginator-options {
+      margin-left: $spacer * -1;
+  
+      > * {
+        margin-left: $spacer;
+        width: auto;
+      }
+  
+      &.input-options {
+        .mat-form-field {
+          flex-basis: calc(25% - #{$spacer});
+        }
+      }
+    }
+  
+    .paginator-nav {
+      flex-direction: row;
+      align-items: baseline;
+  
+      > span {
+        margin-right: $spacer-xs;
+      }
+    }
+  }
+  .remarkLength{
+    width: auto;
+    margin-left: 95%;
+  }
+
+
+  @media screen and (max-width: 768px){
+    .row1 , .row2 ,  .row3 {
+      display: block;
+      width: 100%;
+      
+      .mat-form-field{
+          width: 100%;
+          padding: 5px;
+      }
+    
+    
+  }
+      .remarkLength{
+          width: auto;
+          margin-left: 93%;
+      }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .remarkLength{
+      width: auto;
+      margin-left: 84%;
+  }
+  }

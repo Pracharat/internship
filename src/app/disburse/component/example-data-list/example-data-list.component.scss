@@ -1,0 +1,117 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+}
+
+.data-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:host(.grid) {
+  .data-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 0 0 $spacer ($spacer * -1);
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: $spacer;
+      right: 0;
+    }
+
+    .item {
+      flex-basis: 100%;
+      border: 1px solid $color-light-grey;
+      border-radius: $border-radius;
+      margin-bottom: $spacer;
+      margin-left: $spacer;
+      padding: $spacer;
+
+      .name,
+      .description {
+        margin: 0;
+      }
+
+      .name {
+        font-weight: 500;
+      }
+
+      .description {
+        color: $color-grey;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
+:host(.table) {
+  .data-list {
+    display: table;
+    border: 1px solid $color-grey;
+    border-collapse: collapse;
+    width: 100%;
+
+    .item {
+      display: table-row;
+
+      &:nth-child(even) {
+        background-color: $color-lighter-grey;
+      }
+
+      > * {
+        display: table-cell;
+        border: 1px solid $color-grey;
+        padding: $spacer;
+      }
+    }
+  }
+}
+
+@include screen('sm') {
+  :host(.grid) {
+    .data-list {
+      .item {
+        flex-basis: calc(50% - #{$spacer});
+      }
+    }
+  }
+}
+
+@include screen('md') {
+  :host(.grid) {
+    .data-list {
+      .item {
+        flex-basis: calc((100% / 3) - #{$spacer});
+      }
+    }
+  }
+}
+
+@include screen('lg') {
+  :host(.grid) {
+    .data-list {
+      .item {
+        flex-basis: calc(25% - #{$spacer});
+      }
+    }
+  }
+}
+
+@include screen('xl') {
+  :host(.grid) {
+    .data-list {
+      .item {
+        flex-basis: calc(20% - #{$spacer});
+      }
+    }
+  }
+}

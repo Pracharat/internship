@@ -1,0 +1,7 @@
+<a class="nav-title" routerLink="/">
+  <app-main-logo class="logo"></app-main-logo>
+
+  <h2>{{ 'COMMON.SITE_NAME' | translate }}</h2>
+</a>
+
+<app-menu-tree [menus]="menus" (selectMenu)="onSelectMenu()"></app-menu-tree>

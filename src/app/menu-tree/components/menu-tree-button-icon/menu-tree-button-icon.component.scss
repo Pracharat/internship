@@ -1,0 +1,29 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: inline-block;
+  height: 24px;
+  width: 30px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.icon {
+  margin: 0 auto;
+  height: 24px;
+  width: 100%;
+
+  transition: margin-left 0.15s linear;
+}
+
+fa-icon.icon {
+  font-size: $font-size-lg;
+}
+
+fa-stack.icon {
+  > fa-icon {
+    display: inline-block;
+    line-height: 26px;
+  }
+}

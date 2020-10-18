@@ -1,0 +1,6 @@
+<app-menu-tree-button
+  *ngFor="let menu of menus"
+  [class.expand]="isExpand(menu)"
+  [menu]="menu"
+  (selectMenu)="onSelectMenu(menu)">
+</app-menu-tree-button>

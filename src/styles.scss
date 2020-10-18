@@ -1,0 +1,25 @@
+
+/* You can add global styles to this file, and also import other style files */
+
+@import 'mixins';
+@import 'variables';
+
+@import 'angular-material';
+@import 'fonts';
+@import 'helpers';
+@import 'layout';
+@import 'form';
+@import 'typo';
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-size: $font-size;
+  padding: 0;
+  margin: 0;
+}

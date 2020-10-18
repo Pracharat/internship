@@ -1,0 +1,11 @@
+<fa-icon class="icon" *ngIf="isFaIcon" [icon]="icon"></fa-icon>
+
+<fa-stack class="icon" *ngIf="isFaStackIcon">
+  <fa-icon
+    *ngFor="let stackIcon of faStackIcon"
+    [icon]="stackIcon.faIcon"
+    [stackItemSize]="stackIcon.size">
+  </fa-icon>
+</fa-stack>
+
+<mat-icon class="icon" *ngIf="isMatIcon">{{ icon }}</mat-icon>

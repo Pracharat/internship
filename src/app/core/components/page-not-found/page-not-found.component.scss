@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+// @import 'angular-material/theme';
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.icon {
+  display: block;
+  // font-size: $font-size-xxl * 2;
+  margin: 0;
+}
+
+h1 {
+  // font-size: $font-size-xxl * 2;
+  font-weight: 400;
+  margin: $spacer 0;
+}

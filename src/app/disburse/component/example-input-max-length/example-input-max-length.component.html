@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h2 class="page-title">Input Max Length</h2>
+
+  <mat-form-field>
+    <mat-label>Input Max Length</mat-label>
+
+    <input type="text" #input1 matInput appInputMaxLength>
+
+    <mat-hint>
+      Input max length default is <strong>{{ defaultMaxLength | number }}</strong>
+    </mat-hint>
+
+    <mat-hint align="end">
+      <strong>{{ input1.value.length | number }} / {{ defaultMaxLength | number }}</strong>
+    </mat-hint>
+  </mat-form-field>
+
+  <div class="custom-max-length">
+    <mat-form-field class="enter-input">
+      <mat-label>Input Max Length</mat-label>
+
+      <input type="text" matInput appInputNumber [(ngModel)]="specificMaxLength">
+
+      <mat-hint>
+        Enter max length
+      </mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="result">
+      <mat-label>Input Max Length with specific length</mat-label>
+
+      <input type="text" matInput [appInputMaxLength]="specificMaxLength" [(ngModel)]="input2">
+
+      <mat-hint>
+        Specific max length <strong>{{ (specificMaxLength | number) || '-' }}</strong>
+      </mat-hint>
+
+      <mat-hint align="end">
+        <strong>{{ input2?.length }} / {{ (specificMaxLength | number) || '-' }}</strong>
+      </mat-hint>
+    </mat-form-field>
+  </div>
+
+</div>

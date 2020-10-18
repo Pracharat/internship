@@ -1,0 +1,21 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: inline-flex;
+}
+
+button {
+  padding: 0 $spacer-sm;
+  min-width: 0;
+  transition: {
+    property: background-color, color;
+    duration: 0.1s;
+    timing-function: linear;
+  };
+
+  &.active {
+    background-color: rgba($color-light, 0.75);
+    color: $color-primary;
+  }
+}

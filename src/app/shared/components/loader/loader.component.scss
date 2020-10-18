@@ -1,0 +1,55 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+:host(.full-screen) {
+  background-color: rgba($color-dark, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+.loader {
+  margin: 0 auto;
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+  @include size(40px);
+
+  > div {
+    background-color: $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.6;
+    animation: double-bounce 1s infinite ease-in-out;
+    @include size(100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bounce2 {
+    animation-delay: -0.5s;
+  }
+}
+
+@keyframes double-bounce {
+  0%, 100% {
+    transform: scale(0);
+  } 50% {
+    transform: scale(1);
+  }
+}

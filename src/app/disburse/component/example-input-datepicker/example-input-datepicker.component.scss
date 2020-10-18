@@ -1,0 +1,10 @@
+@import 'mixins';
+@import 'variables';
+
+p {
+  margin-bottom: $spacer-xl;
+}
+
+.options {
+  margin-bottom: $spacer;
+}

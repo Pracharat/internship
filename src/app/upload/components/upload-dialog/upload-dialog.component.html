@@ -1,0 +1,81 @@
+<h1 mat-dialog-title>
+  <fa-icon class="icon" [icon]="'file-upload'"></fa-icon>
+
+  Upload Files
+
+  <span class="flex-spacer"></span>
+
+  <button type="button" class="add-button"
+    mat-stroked-button color="primary"
+    [disabled]="isUploading || isUploadSuccess"
+    (click)="onClickAddFiles()">
+    <mat-icon>add</mat-icon>
+
+    <span class="text">Add Files</span>
+  </button>
+</h1>
+
+<mat-dialog-content>
+  <input type="file" multiple class="input-file"  accept="application/pdf , image/jpg , image/jpeg"  #file (change)="addFiles()">
+
+  <div class="file-list">
+    <app-upload-item class="file-item"
+      *ngFor="let file of files"
+      [ngClass]="listCssClass"
+      [file]="file"
+      [progress]="uploadFileList && uploadFileList[file.name]"
+      (delete)="onDeleteFile($event)">
+    </app-upload-item>
+  </div>
+
+  <div class="empty-list" *ngIf="totalFiles === 0">
+    Click add button and select files to upload
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <span class="info">
+
+    <span class="file-count" *ngIf="totalFiles > 0">
+      <span class="label">File:</span>
+
+      <span class="count">{{ totalFiles | number }}</span>
+    </span>
+
+    <app-upload-progress-bar class="bar"
+      *ngIf="(totalProgress$ | async) as totalProgress"
+      [value]="totalProgress" >
+    </app-upload-progress-bar>
+
+  </span>
+
+  <span class="flex-spacer"></span>
+
+  <button type="button" class="cancel-button"
+    *ngIf="!isUploadSuccess"
+    mat-stroked-button
+    mat-dialog-close
+    [disabled]="isUploading">
+    Cancel
+  </button>
+
+  <button type="button" class="upload-button"
+    *ngIf="!isUploadSuccess"
+    mat-flat-button color="primary"
+    [disabled]="isUploading || isUploadFail"
+    (click)="upload()">
+    Upload
+  </button>
+
+  <button type="button" class="close-button"
+    *ngIf="uploadFinish$ | async"
+    mat-flat-button color="primary"
+    [disabled]="isUploading"
+    (click)="closeDialog()">
+    Finish
+  </button>
+
+</mat-dialog-actions>
+
+

@@ -1,0 +1,117 @@
+<div class="container">
+  <h2 class="page-title">Input Number</h2>
+
+  <form [formGroup]="form">
+
+    <mat-form-field>
+      <mat-label>Input Number</mat-label>
+
+      <input type="text"
+        matInput
+        formControlName="inputNumber"
+        appInputNumber
+        [formatNumber]="formatNumber.value"
+        [locale]="locale.value || null"
+        [digitsInfo]="digitsInfo"
+        [negative]="allowNegative.value"
+        [decimalPoint]="allowDecimalPoint.value"
+        [comma]="allowComma.value">
+
+        <mat-error *ngIf="inputNumber.errors as err">
+          <span *ngIf="err.required">This field is required</span>
+          <span *ngIf="err.inputNumber as e">
+            <span *ngIf="e.isNaN">Invalid number</span>
+            <span *ngIf="e.negative">Negative number not allowed</span>
+            <span *ngIf="e.decimalPoint">Decimal piont not allowed</span>
+            <span *ngIf="e.comma">Comma not allowed</span>
+          </span>
+        </mat-error>
+    </mat-form-field>
+
+    <p>
+      Current Value: <strong>{{ inputNumber.value }}</strong>
+    </p>
+
+    <div class="options">
+
+      <div class="format-options">
+        <mat-checkbox formControlName="formatNumber">
+          Format Display Number
+        </mat-checkbox>
+
+        <mat-form-field class="integer-digits">
+          <mat-label>Integer Digits</mat-label>
+
+          <input type="text"
+            matInput
+            formControlName="integerDigits"
+            appInputNumber
+            [negative]="false"
+            [decimalPoint]="false"
+            [comma]="false">
+        </mat-form-field>
+
+        <mat-form-field class="min-fraction">
+          <mat-label>Mininum Fraction Digits</mat-label>
+
+          <input type="text"
+            matInput
+            formControlName="minFraction"
+            appInputNumber
+            [negative]="false"
+            [decimalPoint]="false"
+            [comma]="false">
+        </mat-form-field>
+
+        <mat-form-field class="max-fraction">
+          <mat-label>Maximum Fraction Digits</mat-label>
+
+          <input type="text"
+            matInput
+            formControlName="maxFraction"
+            appInputNumber
+            [negative]="false"
+            [decimalPoint]="false"
+            [comma]="false">
+        </mat-form-field>
+
+        <mat-form-field class="locale">
+          <mat-label>Locale</mat-label>
+
+          <input type="text" matInput formControlName="locale">
+        </mat-form-field>
+      </div>
+
+      <mat-checkbox formControlName="allowNegative">
+        Allow Negative Number
+      </mat-checkbox>
+
+      <mat-checkbox formControlName="allowDecimalPoint">
+        Allow Decimal Point
+      </mat-checkbox>
+
+      <mat-checkbox formControlName="allowComma">
+        Allow Comma
+      </mat-checkbox>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <mat-form-field>
+      <mat-label>Input Number (no form control)</mat-label>
+
+      <input type="text"
+        matInput
+        appInputNumber
+        [formatNumber]="formatNumber.value"
+        [locale]="locale.value || null"
+        [digitsInfo]="digitsInfo"
+        [negative]="allowNegative.value"
+        [decimalPoint]="allowDecimalPoint.value"
+        [comma]="allowComma.value">
+
+    </mat-form-field>
+  </form>
+
+</div>

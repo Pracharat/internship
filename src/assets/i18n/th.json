@@ -1,0 +1,18 @@
+{
+  "COMMON": {
+    "SITE_NAME": "Angular Starter"
+  },
+  "ERROR": {
+    "COMMON": "เกิดข้อผิดพลาด!",
+    "NO_DATA": "ไม่มีข้อมูล",
+    "REQUIRED": "กรุณากรอก{{ field }}",
+    "NOT_FOUND": "ไม่พบข้อมูลของ{{ field }}"
+  },
+  "PAGINATOR": {
+    "ITEM_PER_PAGE": "จำนวนต่อหน้า"
+  },
+  "HOME": {
+    "TITLE": "Angular Starter",
+    "DESCRIPTION": "โปรเจ็คนี้ มีไว้เพื่อสร้าง modules ที่มี component ต่างๆ directive ต่างๆ และ features ต่างๆที่ถูกนำมาใช้ในงานบ่อยๆ รวมถึง SCSS เพื่อลดเวลาในการสร้างโปรเจ็คงานใหม่"
+  }
+}

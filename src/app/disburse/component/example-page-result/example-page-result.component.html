@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2 class="page-title">Page Result</h2>
+
+  <app-page-result class="page-result"
+    [total]="total"
+    [page]="pageParams.page"
+    [limit]="pageParams.limit">
+  </app-page-result>
+
+  <div class="example-page-result">
+    <mat-form-field class="total">
+      <mat-label>
+        Total
+      </mat-label>
+
+      <input type="text" matInput [(ngModel)]="total">
+    </mat-form-field>
+
+    <button type="button" class="button previous-button" mat-stroked-button (click)="previous()">
+      <mat-icon>chevron_left</mat-icon>
+      Previous
+    </button>
+
+    <button type="button" class="button next-button" mat-stroked-button (click)="next()">
+      Next
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+</div>

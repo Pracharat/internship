@@ -1,0 +1,11 @@
+<mat-form-field>
+  <mat-label>
+    {{ 'PAGINATOR.ITEM_PER_PAGE' | translate }}
+  </mat-label>
+
+  <mat-select [(ngModel)]="limit" (selectionChange)="onItemPerPageChange()">
+    <mat-option *ngFor="let option of itemPerPageList" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

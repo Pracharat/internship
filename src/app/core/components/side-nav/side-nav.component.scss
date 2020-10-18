@@ -1,0 +1,94 @@
+@import 'mixins';
+@import 'variables';
+@import 'angular-material/side-nav';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+
+}
+mat-sidenav{
+  position: fixed; 
+}
+.nav-title {
+  display: flex;
+  color: inherit;
+  line-height: 40px;
+  text-decoration: none;
+  padding: $spacer-sm;
+  
+
+  h2 {
+    font-size: $font-size;
+    font-weight: 500;
+    margin: 0 0 0 $spacer-xs;
+  }
+}
+
+.logo {
+  width: 40px;
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
+  padding: $spacer;
+
+  .title {
+    color: $color-primary;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    margin: 0 0 $spacer-xs 0;
+
+    &::after {
+      content: '';
+      display: block;
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+
+  .menu {
+    text-align: left;
+    padding-left: 0;
+
+    &.active {
+      background-color: $color-primary;
+      color: $color-text-on-dark;
+
+      .icon {
+        margin-left: 0;
+      }
+    }
+
+    .icon {
+      display: inline-block;
+
+      margin-top: -4px;
+      margin-left: $spacer-xs * -1;
+      min-width: 40px;
+
+      line-height: 24px;
+      text-align: center;
+      // vertical-align: middle;
+
+      transition: margin-left 0.15s linear;
+    }
+
+    mat-icon.icon {
+      line-height: 24px;
+    }
+
+    fa-icon.icon {
+      font-size: $font-size-lg;
+    }
+
+    fa-stack.icon {
+      > fa-icon {
+        display: inline-block;
+        line-height: 32px;
+      }
+    }
+  }
+}

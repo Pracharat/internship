@@ -1,0 +1,13 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  color: $color-primary;
+  font-size: $font-size-xxl;
+  margin-bottom: $spacer;
+}

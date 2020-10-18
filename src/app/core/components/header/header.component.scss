@@ -1,0 +1,22 @@
+.namebar{
+position: absolute;
+right: 160px;
+color:white;
+overflow: hidden;
+text-overflow: ellipsis; //ทำเป็นจุด w...
+
+}
+
+// .namebar{
+//   position: fixed;
+//   right: 160px;
+//   color:white;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   width: 350px;
+
+//     @media (max-width: 360px) {
+//       width: 145px;
+//     }
+//   }
+

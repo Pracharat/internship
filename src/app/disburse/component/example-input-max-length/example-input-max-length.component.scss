@@ -1,0 +1,20 @@
+@import 'mixins';
+@import 'variables';
+
+.custom-max-length {
+  .enter-input {
+    max-width: 150px;
+  }
+}
+
+@include screen('sm') {
+  .custom-max-length {
+    display: flex;
+
+    .result {
+      flex: 1 0 320px;
+      margin-left: $spacer;
+    }
+  }
+}
+

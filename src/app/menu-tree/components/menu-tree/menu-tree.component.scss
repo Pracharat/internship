@@ -1,0 +1,29 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  margin: $spacer 0;
+}
+
+app-menu-tree-button {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 34px;
+    left: $spacer;
+    right: $spacer;
+    z-index: 1;
+  }
+
+  &.expand {
+    &::before {
+      background-color: $color-primary;
+    }
+  }
+}

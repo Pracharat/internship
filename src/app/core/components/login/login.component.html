@@ -1,0 +1,49 @@
+<form [formGroup]="loginForm">
+
+  <h2>Log In</h2>
+
+  <mat-form-field>
+
+      <mat-label>Username</mat-label>
+      <input 
+      class="formlogin-control" 
+      matInput 
+      type="text" 
+      placeholder="username" 
+      formControlName="username" 
+      (keydown.enter)="login()">
+  
+      <mat-error *ngIf="username?.errors" class="invalid-feedback">
+        <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+          <mat-error *ngIf="username.errors.required">Username is required</mat-error>
+          <mat-error *ngIf="username.errors?.minlength"> Username must be at least 6 characters</mat-error>
+          <mat-error *ngIf="username.errors?.maxlength"> Username must be less than 20 characters</mat-error>
+          </mat-error>
+        </mat-error>
+  
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input 
+    matInput 
+    class="formlogin-control" 
+    type="password" 
+    placeholder="password" 
+    formControlName="password" 
+    minlength="6" (keydown.enter)="login()">
+      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)"></mat-error>
+        <mat-error *ngIf="password.errors.required"> Password is requireds</mat-error>
+        <mat-error *ngIf="password.errors.minlength"> Password must be at least 6 characters</mat-error>
+  
+  </mat-form-field>
+  
+  <mat-checkbox  class="btncheck" formControlName="rememberMe" class="formlogin-control" ng-model="loginForm.checked">
+    Remember username and password
+  </mat-checkbox>
+  <br>
+  <button mat-flat-button color="primary" class="btn"  (click)="login()">
+    Login
+  </button>
+</form>
+<!-- <app-side-nav></app-side-nav> -->

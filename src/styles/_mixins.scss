@@ -1,0 +1,71 @@
+// Map deep get
+@function get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// Screen breakpoint
+@mixin screen($size) {
+  @if $size == 'cs' {
+    @media screen and (min-width: get($screen, 'cs')) {
+      @content;
+    }
+  }
+  @else if $size == 'sm' {
+    @media screen and (min-width: get($screen, 'sm')) {
+      @content;
+    }
+  }
+  @else if $size == 'md' {
+    @media screen and (min-width: get($screen, 'md')) {
+      @content;
+    }
+  }
+  @else if $size == 'lg' {
+    @media screen and (min-width: get($screen, 'lg')) {
+      @content;
+    }
+  }
+  @else if $size == 'xl' {
+    @media screen and (min-width: get($screen, 'xl')) {
+      @content;
+    }
+  }
+}
+
+// Width and height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Text ellipsis
+@mixin text-ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Square image box
+@mixin square-image() {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  img,
+  .image {
+    @include size(100%);
+    @include position(absolute, 0, 0, 0, 0);
+  }
+
+  img {
+    object-fit: cover;
+  }
+}

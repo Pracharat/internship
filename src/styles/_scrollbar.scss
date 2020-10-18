@@ -1,0 +1,41 @@
+@import 'variables';
+
+$scrollbar-width: 8px;
+
+* {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba($color-grey, 0.25);
+
+  &:hover {
+    box-shadow: inset 0 0 5px 0 rgba($color-dark, 0.25);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(
+    0deg,
+    rgba($color-primary, 0.5) 0%,
+    rgba($color-primary, 0.75) 20%,
+    rgba($color-primary, 0.75) 80%,
+    rgba($color-primary, 0.5) 100%,
+  );
+  border-radius: $scrollbar-width / 2;
+  transition: all 1s linear;
+
+  &:hover {
+    background-image: linear-gradient(
+      0deg,
+      rgba($color-primary, .8) 0%,
+      rgba($color-primary, 0.9) 20%,
+      rgba($color-primary, 0.9) 80%,
+      rgba($color-primary, 0.8) 100%,
+    );
+  }
+}

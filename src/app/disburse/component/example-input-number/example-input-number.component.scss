@@ -1,0 +1,43 @@
+@import 'mixins';
+@import 'variables';
+
+.options {
+  margin-bottom: $spacer;
+  margin-left: $spacer * -1;
+
+  .mat-checkbox,
+  .mat-form-field {
+    margin-left: $spacer;
+  }
+}
+
+.format-options {
+  display: flex;
+  flex-direction: column;
+
+  .mat-checkbox {
+    margin-bottom: $spacer;
+  }
+
+  .locale {
+    width: 110px;
+  }
+
+  .integer-digits,
+  .min-fraction,
+  .max-fraction {
+    min-width: 100px;
+  }
+}
+
+@include screen('md') {
+  .format-options {
+    flex-direction: row;
+    align-items: baseline;
+
+    .mat-checkbox,
+    .mat-form-field {
+      margin-left: $spacer;
+    }
+  }
+}

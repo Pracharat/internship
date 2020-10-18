@@ -1,0 +1,69 @@
+<ng-container *ngIf="(hasTotalItems$ | async) && (isValidOptions$ | async)">
+
+  <button type="button" class="first"
+    matRipple
+    *ngIf="boundaryLinks"
+    [disabled]="isFirstPage"
+    (click)="goToFirst()">
+    <mat-icon>first_page</mat-icon>
+  </button>
+
+  <button type="button" class="previous"
+    matRipple
+    *ngIf="directionLinks"
+    [disabled]="isFirstPage"
+    (click)="goToPrevious()">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <button type="button" class="page first-page" gasScrollPosition
+    *ngIf="isDisplayLeftBoundaryPage"
+    matRipple
+    (click)="goToPage(1)">
+    1
+  </button>
+
+  <span class="ellipsis ellipsis-before"
+    *ngIf="isDisplayLeftEllipsis">
+    <mat-icon>more_horiz</mat-icon>
+  </span>
+
+  <ng-container *ngIf="(pages$ | async) as pages">
+    <button type="button" class="page"
+      matRipple
+      *ngFor="let pageNo of pages"
+      [class.active]="isCurrentPage(pageNo)"
+      (click)="goToPage(pageNo)">
+      {{ pageNo }}
+    </button>
+  </ng-container>
+
+  <span class="ellipsis ellipsis-after"
+    *ngIf="isDisplayRightEllipsis">
+    <mat-icon>more_horiz</mat-icon>
+  </span>
+
+  <button type="button" class="page last-page" gasScrollPosition
+    *ngIf="isDisplayRightBoundaryPage"
+    matRipple
+    (click)="goToPage(totalPage)">
+    {{ totalPage | number }}
+  </button>
+
+  <button type="button" class="next"
+    matRipple
+    *ngIf="directionLinks"
+    [disabled]="isLastPage"
+    (click)="goToNext()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+
+  <button type="button" class="last"
+    matRipple
+    *ngIf="boundaryLinks"
+    [disabled]="isLastPage"
+    (click)="goToLast()">
+    <mat-icon>last_page</mat-icon>
+  </button>
+
+</ng-container>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Service</title>
+    <!-- Bootstrap -->
+<!--    <link href="/../../../mail_templates/css/bootstrap/bootstrap.min.css" rel="stylesheet">-->
+    <!-- my style -->
+<!--    <link href="/../../../mail_templates/css/email-style.min.css" rel="stylesheet">-->
+</head>
+
+<body>
+<div class="email-head">
+    <p>เรื่อง {{ data.topics.th }}</p>
+    <p>เรียน คุณ{{ data.userName.th }}</p>
+</div>
+
+<br>
+<p>เอกสารการเบิก {{ data.welfareName.th}} เลขที่ {{ data.welfareNo }} ได้รับการอนุมัติ จากฝ่ายบัญชี ในวันที่ {{data.welfareApprovedDate }} แล้ว</p>
+<br>
+<br>
+
+<p>
+    ขอแสดงความนับถือ
+    <br>
+    บริษัท แอดวานซ์ ไวร์เลส เน็ทเวอร์ค จำกัด
+</p>
+
+<br>
+
+<p>
+    อีเมล์ฉบับนี้ เป็นการแจ้งข้อมูลจากระบบโดยอัตโนมัติ กรุณาอย่าตอบกลับ
+</p>
+
+<br>
+<br>
+
+<div class="email-head">
+    <p>Topic {{ data.topics.en }}</p>
+    <p>Dear {{ data.userName.en }}</p>
+</div>
+
+<br>
+<p>we would like to inform you that your document: {{ data.welfareName.en }} No. {{ data.welfareNo }} has been approved
+    from Accounting Department on {{ data.welfareApprovedDate }}</p>
+<br>
+<br>
+
+<p>
+    Best regards,
+    <br>
+    Advanced Wireless Network Company Limited (AWN)
+</p>
+<p>
+    This email is auto-generate. Please do not reply.
+</p>
+</body>
+
+</html>

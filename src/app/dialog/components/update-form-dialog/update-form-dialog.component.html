@@ -1,0 +1,123 @@
+<div class="container">
+    <form [formGroup]="form">
+
+        <h2 class="page-title">แก้ไขข้อมูลการเบิกค่าtoeic</h2>
+
+        <mat-form-field>
+            <mat-label>ผู้มีสิทธิ</mat-label>
+            <input type="search"  
+                    placeholder="Full name" 
+                    matInput 
+                    [matAutocomplete]="auto" 
+                    formControlName="employee" >
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayEmployeeOption" ></mat-autocomplete>
+            
+
+        <h3 class="seconde-title">เอกสารการเบิก</h3>
+
+        <div class="row1">
+
+            <mat-form-field>
+                <mat-label>เลขที่ใบเสร็จรับเงิน</mat-label>
+                <input type="text" placeholder="xx-xxx-xxx" appStrictcharacter appRecieptNumber matInput formControlName="receiptNo">
+            </mat-form-field>
+
+            <mat-form-field>
+
+                <mat-label>วันที่</mat-label>
+
+                <input type="text" matInput [min]="minDate" 
+				[max]="currentDate" 
+				formControlName="receiptDate"
+				placeholder="วัน/เดือน/ปี" 
+				[appInputDate]="picker" 
+				[matDatepicker]="picker" 
+				[allowKey]="false">
+
+                <button type="button" mat-icon-button matSuffix (click)="date.reset()">
+                    <mat-icon>clear</mat-icon>
+                </button>
+
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+                <mat-datepicker #picker></mat-datepicker>
+
+                <mat-error *ngIf="date.errors as err">
+                    {{ err.matDatepickerParse?.text }} is not valid date format <strong>DD/MM/YYYY</strong>.
+                </mat-error>
+
+            </mat-form-field>
+
+        </div>
+
+        <div class="row2">
+
+            <div class="netTotal">
+                <mat-form-field>
+                    <mat-label>ยอดเงินสุทธิ</mat-label>
+                    <input type="text" 
+                    appInputNumber 
+                    [digitsInfo]="'0.2-2'" 
+                    matInput 
+                    [allowKey]="true"
+                    (change)="amountWithDrawn()"
+                    formControlName="receiptAmount">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+                <mat-label>ยอดเงินที่สามารถเบิกได้</mat-label>
+                <input 
+                type="text" 
+                matInput 
+                appInputNumber 
+                [digitsInfo]="'0.2-2'"
+                [allowKey]="true" 
+                formControlName="amountWithdrawn">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field >
+			<mat-label>เอกสารใบเสร็จรับเงิน</mat-label>
+			<input 
+			type="text" 
+			matInput 
+			placeholder="อัพโหลดไฟล์"
+			matTooltip="PDF,JPG,JPEG"
+			readonly [value]="receiptFile.value?.filename || '' "  
+			(click)="inputFile.click()"
+			>
+			<button type="button" matSuffix mat-icon-button appUploadButton >
+                    <mat-icon>attach_file</mat-icon>
+			</button>
+			<mat-error>กรุณาเพิ่มไฟล์เอกสาร</mat-error>
+			<mat-hint>
+				<span class="showCorrect" *ngIf="receiptFile.errors">
+					<mat-icon>check_circle</mat-icon>
+					<span>ถูกต้อง</span>
+				</span>
+			</mat-hint>
+
+		</mat-form-field>
+		<div class="inputFile">
+			<input type="file" #inputFile accept="application/pdf , image/jpg , image/jpeg" (change)="onFileChanges($event)">
+		</div>
+
+
+        <mat-form-field>
+            <mat-label>หมายเหตุ</mat-label>
+            <textarea matInput appRemark formControlName="remark"></textarea>
+            <mat-hint class="remarkLength">
+				<span>{{remark.value?.length || 0 }}/{{1500}}</span>
+			</mat-hint>
+			<mat-error>
+				ตัวอักษรไม่เกิน 1,500 ตัว
+			</mat-error>
+        </mat-form-field>
+        <div class="button-container">
+            <button type="button"  mat-stroked-button  color="basic" (click)="cancelUpdate()">Cancel</button>
+            <button type="button" mat-flat-button color="primary" (click)="update()">Update</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,129 @@
+@import 'variables';
+@import 'mixins';
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+ background: white;
+// background-image: linear-gradient(to right , slateblue , rgb(0, 174, 255));
+
+  padding: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  // background-image: linear-gradient(-225deg, #be91bf 50%, #ffe6fa 50%);
+  border-radius: 10px;
+  padding: 4%;
+  box-shadow: 3px 3px 10px rgb(210, 216, 223);
+}
+h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: slateblue;
+}
+// p,
+// .form-group,
+.btn {
+  margin: 15px 0;
+  width: 100%;
+  background-image: linear-gradient(to right , slateblue , rgb(0, 174, 255));
+  border-radius: 20px;
+  padding: 5px;
+}
+// p {
+//   font-size: 18px;
+// }
+// h2 {
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .form-group {
+//   label,
+//   input {
+//     display: block;
+//     width: 100%;
+//     margin-top: 1%;
+//     font-family: "Abel", sans-serif;
+//   }
+// }
+// .formlogin-control {
+//   height: 35px;
+//   border-radius: 10px;
+//   padding: 15px;
+//   font-family: "Abel", sans-serif;
+//   border: none;
+//   font-size: 14px;
+// }
+// input.form-group {
+//   width: 100%;
+//   height: 50px;
+
+//   padding: 15px;
+//   font-size: 16px;
+//   font-family: "Abel", sans-serif;
+//   color: #5e6472;
+//   border-radius: 0px 5px 5px 0px;
+//   transition: 0.2s linear;
+// }
+
+// input:focus {
+//   transform: translateX(-4px);
+//   border-radius: 5px;
+// }
+
+// .btn {
+//   display: flex;
+//   justify-content: center;
+//   margin: 10%;
+//   border: none;
+//   width: 80%;
+//   height: 35px;
+//   border-radius: 10px;
+
+//   background-color: rgb(230, 121, 109);
+//   color: white;
+//   font-size: 14px;
+// }
+
+// /* buttons hover Animation */
+// button:hover {
+//   animation: ani9 0.4s ease-in-out infinite alternate;
+//   background-color: rgb(251, 172, 163);
+// }
+// @keyframes ani9 {
+//   0% {
+//     transform: translateY(3px);
+//   }
+//   100% {
+//     transform: translateY(5px);
+//   }
+// }
+
+// .invalid-feedback {
+//   color: red;
+//   font-size: 12px;
+// }
+// .reqlogin {
+//   text-align: center;
+//   width: 100%;
+//   color: red;
+//   font-size: 18px;
+// }
+// .btncheck {
+//   font-size: 12px;;
+//   display: flex;
+//   justify-content: center;
+// }

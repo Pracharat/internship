@@ -1,0 +1,14 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: inline-block;
+}
+
+.fail {
+  color: $color-grey;
+}
+
+.success {
+  color: $color-primary;
+}

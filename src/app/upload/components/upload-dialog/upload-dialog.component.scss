@@ -1,0 +1,110 @@
+@import 'mixins';
+@import 'variables';
+
+.input-file {
+  display: none !important;
+}
+
+.mat-dialog-title {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin-right: $spacer-xs;
+  }
+}
+
+.mat-dialog-content {
+  max-height: 350px;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-bottom: $spacer;
+  }
+
+  .cancel-button,
+  .upload-button {
+    flex-basis: calc(50% - (#{$spacer} / 2));
+  }
+
+  .upload-button {
+    margin-left: $spacer;
+  }
+
+  .close-button {
+    flex-basis: 100%;
+  }
+}
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: $font-size-lg;
+  text-align: center;
+
+  padding: $spacer;
+  min-height: 240px;
+}
+
+.add-button {
+  .text {
+    display: none;
+  }
+}
+
+.info {
+  flex: 1 1 100%;
+  display: inline-flex;
+}
+
+.file-count {
+  .count {
+    font-weight: 700;
+    margin-left: $spacer-xs;
+  }
+}
+
+.result,
+.bar {
+  flex: 1 1 auto;
+  margin-left: $spacer;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+
+  .file-item {
+    border-bottom: 1px solid $color-lighter-grey;
+
+    &:first-child {
+      border-top: 1px solid $color-lighter-grey;
+    }
+  }
+}
+
+@include screen('md') {
+  .mat-dialog-actions {
+    .cancel-button,
+    .upload-button,
+    .close-button {
+      flex-basis: auto;
+    }
+  }
+
+  .add-button {
+    .text {
+      display: inline;
+    }
+  }
+
+  .info {
+    flex-basis: auto;
+  }
+}

@@ -1,0 +1,20 @@
+mat-form-field.mat-form-field {
+  display: block;
+  margin-bottom: $spacer-lg;
+
+  .mat-form-field-prefix,
+  .mat-form-field-suffix {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mat-form-field-suffix {
+    top: 0;
+
+    .mat-button-base {
+      .mat-icon {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'variables';
+
+.page-result {
+  display: inline-block;
+  margin-bottom: $spacer;
+}
+
+.example-page-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.total {
+  flex-basis: 100%;
+}
+
+.button {
+  flex-basis: calc(50% - #{$spacer});
+
+  &.previous-button {
+    padding-left: 0;
+  }
+  &.next-button {
+    padding-right: 0;
+  }
+}
+
+@include screen('md') {
+  .example-page-result {
+    justify-content: flex-start;
+  }
+
+  .total,
+  .button {
+    flex-basis: auto;
+  }
+
+  .button {
+    margin-left: $spacer;
+
+    &.previous-button {
+      padding-left: $spacer-xxs;
+    }
+    &.next-button {
+      padding-right: $spacer-xxs;
+    }
+  }
+}

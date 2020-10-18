@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+
+  <button mat-icon-button
+  *ngIf="isDisplayButton$ | async"
+  (click)="toggleMenu()">
+  <mat-icon>menu</mat-icon>
+</button>
+
+
+  <span class="namebar" *ngIf="username">
+    {{ username }}
+  </span>
+
+  <span class="flex-spacer"></span>
+
+  <app-language-switcher class="language-switcher"></app-language-switcher>
+
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

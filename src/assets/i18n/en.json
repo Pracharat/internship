@@ -1,0 +1,18 @@
+{
+  "COMMON": {
+    "SITE_NAME": "Angular Starter"
+  },
+  "ERROR": {
+    "COMMON": "Something went wrong!",
+    "NO_DATA": "No Data",
+    "REQUIRED": "{{ field }} is required",
+    "NOT_FOUND": "{{ field }} not found"
+  },
+  "PAGINATOR": {
+    "ITEM_PER_PAGE": "Item per page"
+  },
+  "HOME": {
+    "TITLE": "Angular Starter",
+    "DESCRIPTION": "This project is to build modules containing re-usable components, directives, and some more features on most of my work. Also include some SCSS work to reduce time to build next new project."
+  }
+}
